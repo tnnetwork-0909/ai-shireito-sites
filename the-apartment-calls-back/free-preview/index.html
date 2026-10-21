@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="canonical" href="https://tnnetwork-0909.github.io/ai-shireito-sites/the-apartment-calls-back/free-preview/">
+</head>
+<body>
+  <main id="app">
+    <section id="screen-title" class="screen" hidden>
+      <h1 id="title-heading" tabindex="-1"></h1>
+      <p id="title-tagline"></p>
+      <p id="title-note" class="muted"></p>
+      <div class="actions">
+        <button id="title-start" class="primary" type="button"></button>
+        <button id="title-restart" class="quiet" type="button" hidden></button>
+      </div>
+    </section>
+
+    <section id="screen-opening" class="screen" hidden>
+      <h2 id="opening-heading" tabindex="-1"></h2>
+      <ol id="opening-lines" class="transcript" aria-live="polite"></ol>
+      <div class="actions">
+        <button id="opening-next" class="primary" type="button"></button>
+      </div>
+    </section>
+
+    <section id="screen-preview" class="screen" hidden>
+      <h2 id="preview-heading" tabindex="-1"></h2>
+      <p id="preview-text"></p>
+      <div class="actions">
+        <a id="preview-buy" class="primary" hidden></a>
+        <button id="preview-replay" class="quiet" type="button"></button>
+      </div>
+    </section>
+
+    <section id="screen-log" class="screen" hidden>
+      <h2 id="log-heading" tabindex="-1"></h2>
+      <p id="log-help" class="muted"></p>
+      <p id="log-progress" class="progress"></p>
+      <div id="log-tabs" class="tabs" role="tablist"></div>
+      <div id="log-panel" class="call" role="tabpanel"></div>
+      <h3 id="facts-heading"></h3>
+      <ul id="facts-list" class="facts"></ul>
+      <div class="dock">
+        <p id="log-selection" aria-live="polite"></p>
+        <p id="log-feedback" role="status"></p>
+        <div class="actions">
+          <button id="log-compare" class="primary" type="button"></button>
+          <button id="log-decide" class="primary" type="button" hidden></button>
+          <button id="log-hint" class="quiet" type="button"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-decision" class="screen" hidden>
+      <h2 id="decision-heading" tabindex="-1"></h2>
+      <p id="decision-prompt"></p>
+      <div id="decision-choices" class="choices"></div>
+    </section>
+
+    <section id="screen-ending" class="screen" hidden>
+      <h2 id="ending-title" tabindex="-1"></h2>
+      <p id="ending-counter" class="muted"></p>
+      <div id="ending-body"></div>
+      <h3 id="ending-why-heading"></h3>
+      <p id="ending-why"></p>
+      <p id="ending-seen" class="progress"></p>
+      <div class="actions">
+        <button id="ending-again" class="primary" type="button"></button>
+        <button id="ending-restart" class="quiet" type="button"></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/story.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

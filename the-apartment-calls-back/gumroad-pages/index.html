@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Apartment Calls Back is a short phone call horror game. Play the free opening, then compare three recorded calls to uncover three contradictions and choose among three endings. Offline full edition, US$2.">
+  <title>The Apartment Calls Back — short phone call horror game</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #101719;
+  --panel: #192326;
+  --text: #f5f2e9;
+  --muted: #bdc9c7;
+  --line: #425456;
+  --accent: #ffd18a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-wrap: break-word;
+}
+a { color: var(--accent); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: .15em; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.wrap { width: calc(100% - 2.5rem); max-width: 760px; min-width: 0; margin-inline: auto; overflow-wrap: anywhere; }
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap { padding-block: 1rem; }
+.brand { color: var(--text); font-weight: 700; text-decoration: none; }
+main { padding-block: 3.5rem 5rem; }
+h1, h2 { line-height: 1.18; letter-spacing: -.025em; }
+h1 { font-size: clamp(2.4rem, 8vw, 4.4rem); max-width: 12ch; margin: .3rem 0 1rem; }
+h2 { font-size: clamp(1.55rem, 4vw, 2rem); margin: 0 0 .9rem; }
+h3 { font-size: 1.1rem; margin: 1.4rem 0 .3rem; }
+p { margin: 0 0 1rem; }
+.eyebrow { color: var(--accent); font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.lead { font-size: 1.25rem; max-width: 55ch; }
+.muted, small { color: var(--muted); }
+small { font-size: 16px; }
+.hero { padding-bottom: 3rem; }
+.hero .note { margin-top: 1rem; }
+.button, button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: .7rem 1.2rem;
+  border: 2px solid var(--accent);
+  border-radius: .35rem;
+  background: var(--accent);
+  color: var(--bg);
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover, button:hover { background: #ffe0ad; border-color: #ffe0ad; }
+section { border-top: 1px solid var(--line); padding-block: 2.7rem; }
+.sample { background: var(--panel); border-left: 4px solid var(--accent); padding: 1.2rem 1.4rem; margin: 1.5rem 0 0; }
+.sample p:last-child { margin-bottom: 0; }
+.log-preview { margin: 1.5rem 0 0; padding: 1.25rem; border: 1px solid var(--line); background: #121212; color: #ededed; font: 18px/1.6 Georgia, "Times New Roman", serif; }
+.log-preview-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; margin-bottom: 1rem; }
+.log-preview-head span { color: #f2b84b; font-weight: 700; }
+.preview-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-bottom: 1rem; font: 700 16px/1.4 system-ui, sans-serif; text-align: center; }
+.preview-tabs span { padding: .65rem .3rem; border: 2px solid #3a3a3a; border-radius: 8px; background: #1d1d1d; }
+.preview-tabs .current { border-color: #f2b84b; color: #f2b84b; }
+.log-preview h3 { margin: 0 0 .6rem; font: 700 1.1rem/1.3 Georgia, "Times New Roman", serif; }
+.preview-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.25rem; }
+.preview-grid > div { min-width: 0; }
+.preview-grid h4 { margin: .7rem 0 .5rem; color: #b5b5b5; font: 700 16px/1.4 system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.log-item { margin-bottom: .5rem; padding: .6rem .9rem; border: 2px solid #3a3a3a; border-radius: 8px; background: #1d1d1d; }
+.log-item span { display: block; color: #b5b5b5; font: 16px/1.4 system-ui, sans-serif; }
+.log-preview figcaption { margin-top: 1rem; color: var(--muted); font: 16px/1.5 system-ui, sans-serif; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; text-align: left; }
+table th:first-child { width: 24%; }
+table th:nth-child(2) { width: 28%; }
+th, td { padding: .75rem .7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--accent); }
+ul { padding-left: 1.3rem; }
+li { margin-bottom: .35rem; }
+.details { background: var(--panel); padding: 1.3rem 1.5rem; margin: 1.5rem 0; }
+.signup label { display: block; margin-bottom: .5rem; font-weight: 700; }
+.signup-row { display: flex; gap: .65rem; }
+input[type=email] { min-width: 0; flex: 1; padding: .7rem .85rem; border: 2px solid var(--line); border-radius: .35rem; background: #fff; color: #111; font: inherit; }
+.legal h1 { max-width: none; font-size: clamp(2rem, 6vw, 3rem); }
+.legal section { padding-block: 1.5rem; }
+.legal dl { display: grid; grid-template-columns: minmax(10rem, 1fr) 2fr; margin: 0; }
+.legal dt, .legal dd { margin: 0; padding: .7rem; border-bottom: 1px solid var(--line); }
+.legal dt { font-weight: 700; }
+.site-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--muted); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; margin-bottom: 1rem; }
+.site-footer a { color: var(--text); }
+@media (max-width: 560px) {
+  .wrap { width: calc(100% - 2rem); }
+  main { padding-top: 2.7rem; }
+  .preview-grid { grid-template-columns: 1fr; gap: .5rem; }
+  .log-preview { padding: 1rem; }
+  th, td { padding: .65rem .3rem; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
+  .signup-row { flex-direction: column; }
+  .signup-row button, .hero .button, .buy .button { width: 100%; }
+  .legal dl { grid-template-columns: 1fr; }
+  .legal dt { padding-bottom: 0; border-bottom: 0; }
+  .legal dd { padding-top: .2rem; }
+}
+@media (max-width: 430px) {
+  .wrap { width: calc(100% - 2rem); max-width: 320px; }
+  .eyebrow { font-size: 14px; letter-spacing: .03em; }
+  .lead { font-size: 1.1rem; }
+  h1 { font-size: clamp(2rem, 8vw, 2.4rem); }
+  .button { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+</style>
+<link rel="canonical" href="https://tnnetwork-0909.github.io/ai-shireito-sites/the-apartment-calls-back/gumroad-pages/">
+</head>
+<body>
+  <header class="site-header"><div class="wrap"><a class="brand" href="../">The Apartment Calls Back</a></div></header>
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Short interactive fiction · phone horror</p>
+      <h1>Your apartment is calling. You're not home.</h1>
+      <p class="lead">A caller sounds exactly like you. Read the free opening, then compare spoken lines with call records in the full mystery.</p>
+      <a class="button" href="../app/">Play the free opening</a>
+      <p class="note muted">A complete opening scene. Text only; no microphone or voice input. No account or payment. The full English game is designed for about 20 minutes per playthrough and costs US$2.</p>
+    </div>
+
+    <section aria-labelledby="story-heading">
+      <h2 id="story-heading">A call from 4B</h2>
+      <p>You're away for the night. Your friend went to feed the cat and hasn't replied. Now the landline in your empty apartment calls you, and the person speaking sounds like you.</p>
+      <div class="sample" aria-label="Excerpt from the free opening"><p class="eyebrow">Incoming call · Home — Apt 4B</p><p>“Jun can't find the door right now.”</p></div>
+      <p class="muted">The free opening gives you one self-contained phone horror scene. Its unanswered question leads into the paid call-log mystery.</p>
+    </section>
+
+    <section aria-labelledby="look-heading">
+      <h2 id="look-heading">Inside the paid call log</h2>
+      <p>In the full game, choose two selectable items and press Compare. Check what a voice says against the recorded origin or answerer of a call. Times appear in the log, but none of the three proven contradictions depends on a time mismatch.</p>
+      <figure class="log-preview">
+        <div class="log-preview-head"><strong>Call log — Apt 4B</strong><span>Contradictions found: 0 of 3</span></div>
+        <div class="preview-tabs" aria-label="Recorded calls"><span class="current">Call 1</span><span>Call 2</span><span>Call 3</span></div>
+        <h3>Call 1 — Jun calls the super</h3>
+        <div class="preview-grid">
+          <div><h4>Call record</h4>
+            <div class="log-item"><span>Time</span>Sat 9:10 PM</div>
+            <div class="log-item"><span>Placed from</span>Apt 4B landline — kitchen wall phone (corded)</div>
+            <div class="log-item"><span>Answered by</span>Dale Hensley</div>
+          </div>
+          <div><h4>Recording</h4>
+            <div class="log-item"><span>Dale</span>Hensley.</div>
+            <div class="log-item"><span>Jun</span>Hi Dale, it's Jun — Alex's friend. I'm feeding the cat in 4B.</div>
+            <div class="log-item"><span>Jun</span>The radiator's knocking. In a rhythm. Three knocks, then a pause.</div>
+          </div>
+        </div>
+        <figcaption>Read-only excerpt built from the full game's Call 1 text and call-log structure. In the download, each item is selectable; this excerpt gives away no answer.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="compare-heading">
+      <h2 id="compare-heading">What changes in the full game</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th scope="col"> </th><th scope="col">Free</th><th scope="col">Full · US$2</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Story</th><td>Opening call</td><td>Opening + three recorded calls</td></tr>
+          <tr><th scope="row">Play</th><td>Read the scene</td><td>Select two items and compare; prove three contradictions</td></tr>
+          <tr><th scope="row">Ending</th><td>Scene ends</td><td>Choose among three endings; revisit the others</td></tr>
+          <tr><th scope="row">Access</th><td>Browser preview</td><td>ZIP download; open index.html offline</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted">The full game has optional hints and saves puzzle progress in your browser on that device. It needs no account, installation, or AI service.</p>
+    </section>
+
+    <section class="buy" aria-labelledby="buy-heading">
+      <h2 id="buy-heading">Buy the full game</h2>
+      <p>US$2, one-time purchase. After payment, Gumroad emails a receipt with access to the ZIP. Unzip it, keep the included files together, and open index.html in a modern browser. The game then runs offline. A playthrough is designed for about 20 minutes; your time may vary.</p>
+      <p>The game has a phone-size layout, but opening a downloaded local HTML game depends on your phone's browser and file handling. The free browser preview lets you check the reading layout. Any applicable tax and the final total appear at Gumroad checkout before you pay.</p>
+      <p>Play the free opening first to check the tone and your browser. If the full edition isn't right for you, request a full refund within 14 days of purchase by replying to the Gumroad receipt. Your legal rights still apply. <a href="terms">Read the full terms</a>.</p>
+      <a class="button" href="https://tnnetwork.gumroad.com/l/wouyw">Buy the full edition — US$2</a>
+      <p class="note muted">Content note: suspense and a missing person. No gore.</p>
+    </section>
+
+    <section class="signup" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Get game updates</h2>
+      <p>Optional email updates about fixes and future releases. The full edition is purchased through the button above; joining this list does not place an order. You can unsubscribe from any email.</p>
+      <a class="button" href="https://buttondown.com/api/emails/embed-subscribe/tnnetwork">Open the Buttondown signup page</a>
+      <p class="muted"><small>Signup is hosted by Buttondown. See our <a href="privacy">privacy policy</a>.</small></p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap">
+    <nav aria-label="Legal"><a href="privacy">Privacy</a><a href="terms">Terms</a><a href="tokushoho" lang="ja">特定商取引法に基づく表記</a></nav>
+    <p>Operator: TN network · Contact: tnnetwork.support@icloud.com</p>
+  </div></footer>
+</body>
+</html>

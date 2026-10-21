@@ -1,0 +1,119 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #f3f3f3;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; font-size: 16px; line-height: 1.35; }
+
+.screen-intro { max-width: 860px; margin: 24px auto 8px; padding: 0 20px; }
+.screen-intro .back { margin: 0 0 8px; }
+.screen-intro h1 { font-size: 1.5rem; margin: 0 0 8px; }
+.screen-intro p { margin: 0; }
+a { color: #064c85; }
+a:focus-visible { outline: 3px solid #064c85; outline-offset: 3px; }
+
+.sheet {
+  background: #fff;
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 28px;
+  box-shadow: 0 2px 12px #0002;
+  overflow-x: auto;
+}
+
+.sheet-header { display: flex; justify-content: space-between; align-items: end; gap: 12px; border-bottom: 2px solid #111; padding-bottom: 7px; }
+.eyebrow { margin: 0; font-size: 1em; text-transform: uppercase; letter-spacing: .06em; }
+h2 { margin: 2px 0 0; font-size: 1.5em; line-height: 1.1; }
+.turns { margin: 0; font-weight: 700; white-space: nowrap; }
+.instruction { margin: 10px 0 8px; }
+.tallies { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin: 0 0 8px; }
+.write-line { display: inline-block; border-bottom: 1px solid #111; height: 1em; vertical-align: baseline; }
+.write-line.short { width: 2.2em; }
+.write-line.medium { width: 4em; }
+.write-line.long { width: 9em; }
+
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.map { border: 1.5px solid #111; }
+.map th, .map td { border: 1px solid #777; text-align: center; padding: 2px; }
+.map thead th { font-size: 1em; font-weight: 700; height: 28px; }
+.map thead th:first-child, .map tbody th { width: 7%; }
+.map tbody td, .map tbody th { height: 48px; }
+.map tbody th { font-size: 1em; }
+.map .river { border-left: 1.5px solid #111; border-right: 1.5px solid #111; }
+.legend { font-size: 1em; margin: 6px 0; }
+
+.compact-section { margin-top: 11px; }
+h3 { font-size: 1em; line-height: 1.2; margin: 0 0 5px; }
+h3 small { font-size: 1em; font-weight: 400; }
+.track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 16px; font-size: 1em; white-space: nowrap; }
+.track div { padding: 2px 0; }
+.log th, .log td { border: 1px solid #777; padding: 2px 4px; }
+.log thead th { font-size: 1em; text-align: left; }
+.log tbody th { font-size: 1em; }
+.log tbody tr { height: 29px; }
+#past-sheet .log thead th:nth-child(1), #future-sheet .log thead th:nth-child(1) { width: 6%; }
+#past-sheet .log thead th:nth-child(2), #future-sheet .log thead th:nth-child(2) { width: 10%; }
+#past-sheet .log thead th:nth-child(3) { width: 16%; }
+#past-sheet .log thead th:nth-child(4) { width: 25%; }
+#past-sheet .log thead th:nth-child(5) { width: 19%; }
+#past-sheet .log thead th:nth-child(6) { width: 10%; }
+#past-sheet .log thead th:nth-child(7) { width: 14%; }
+#future-sheet .log thead th:nth-child(3) { width: 18%; }
+#future-sheet .log thead th:nth-child(4) { width: 15%; }
+#future-sheet .log thead th:nth-child(5) { width: 36%; }
+#future-sheet .log thead th:nth-child(6) { width: 15%; }
+.events th, .events td { border: 1px solid #777; padding: 5px; vertical-align: top; }
+.events th { width: 5%; text-align: center; }
+.events td { width: 45%; font-size: 1em; }
+.next-step { margin: 9px 0 0; font-size: 1em; }
+.score { margin-top: 12px; border: 1.5px solid #111; padding: 8px; }
+.score-lines { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 5px; font-size: 1em; }
+.score-lines span:last-child { grid-column: 1 / -1; }
+.ending-guide { font-size: 1em; margin: 7px 0 0; }
+
+@media (max-width: 700px) {
+  .screen-intro { margin-top: 16px; }
+  .sheet { margin: 12px 0; padding: 16px; }
+  .sheet-header { align-items: start; }
+  .map, .log, .events { min-width: 620px; }
+  .track { grid-template-columns: 1fr; }
+  .score-lines { grid-template-columns: 1fr; }
+  .score-lines span:last-child { grid-column: auto; }
+}
+
+@page { margin: 12mm; }
+
+@media print {
+  :root { background: white; }
+  body { font-size: 10.5pt; line-height: 1.16; }
+  .screen-intro { display: none; }
+  .sheet { max-width: none; margin: 0; padding: 0; box-shadow: none; overflow: visible; break-after: page; page-break-after: always; }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+  .sheet-header { padding-bottom: 1.5mm; }
+  .eyebrow { font-size: 10.5pt; }
+  h2 { font-size: 17pt; }
+  .instruction { margin: 2.5mm 0 2mm; }
+  .tallies { margin-bottom: 2mm; }
+  .map thead th { height: 6mm; }
+  .map thead th, .map tbody th { font-size: 10.5pt; }
+  .map tbody td, .map tbody th { height: 10mm; }
+  .legend { font-size: 10.5pt; margin: 1mm 0; }
+  .compact-section { margin-top: 2.5mm; break-inside: avoid; }
+  h3 { margin-bottom: 1mm; }
+  h3 small { font-size: 10.5pt; }
+  .track { font-size: 10.5pt; gap: 0 3mm; }
+  .track div { padding: .25mm 0; }
+  .log th, .log td { padding: .5mm 1mm; }
+  .log thead th, .log tbody th { font-size: 10.5pt; }
+  .log tbody tr { height: 6mm; }
+  .events th, .events td { padding: .8mm; }
+  .events td { font-size: 10.5pt; }
+  .next-step { font-size: 10.5pt; margin-top: 1.5mm; }
+  .score { margin-top: 2.5mm; padding: 1.5mm; break-inside: avoid; }
+  .score-lines { font-size: 10.5pt; row-gap: .5mm; column-gap: 3mm; }
+  .ending-guide { font-size: 10.5pt; margin-top: 1mm; }
+}

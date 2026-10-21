@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Pet Adventure Postcard Studio</title>
+    <link rel="stylesheet" href="./src/styles.css">
+    <script defer src="./app.js"></script>
+  <link rel="canonical" href="https://tnnetwork-0909.github.io/ai-shireito-sites/pet-adventure-postcard-studio/app/">
+</head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <h1 id="page-title">Pet Adventure Postcard Studio</h1>
+        <p id="page-lead">Turn one visit photo and your notes into a printable 6 × 4 in postcard for the pet’s family.</p>
+      </header>
+
+      <div class="workspace">
+        <form id="card-form" class="form-panel" novalidate>
+          <div class="field">
+            <label id="photo-label" for="photo">Photo (required)</label>
+            <input id="photo" name="photo" type="file" aria-describedby="photo-hint photo-warning photo-error" required>
+            <p id="photo-hint" class="hint">One visit photo. JPG, PNG, or WebP, up to 25 MB.</p>
+            <p id="photo-warning" class="warning" hidden></p>
+            <p id="photo-error" class="error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label id="pet-name-label" for="pet-name">Pet’s name (optional)</label>
+            <input id="pet-name" name="petName" type="text" autocomplete="off" placeholder="e.g. Biscuit" aria-describedby="pet-name-error">
+            <p id="pet-name-error" class="error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label id="notes-label" for="notes">What you observed (required)</label>
+            <textarea id="notes" name="notes" rows="5" placeholder="e.g. Chased the red ball six times, then napped in the sunny spot by the window." aria-describedby="notes-hint notes-count notes-error" required></textarea>
+            <div class="field-meta">
+              <p id="notes-hint" class="hint">Only what really happened. Your words are printed exactly as written.</p>
+              <p id="notes-count" class="count"></p>
+            </div>
+            <p id="notes-error" class="error" hidden></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label id="visit-date-label" for="visit-date">Visit date (optional)</label>
+              <input id="visit-date" name="visitDate" type="date">
+            </div>
+            <div class="field">
+              <label id="sitter-name-label" for="sitter-name">Signed by (optional)</label>
+              <input id="sitter-name" name="sitterName" type="text" autocomplete="name" placeholder="Your name" aria-describedby="sitter-name-error">
+              <p id="sitter-name-error" class="error" hidden></p>
+            </div>
+          </div>
+
+          <fieldset class="field templates">
+            <legend id="template-legend">Card style</legend>
+            <div id="template-options" class="template-options">
+              <label class="template-option"><input type="radio" name="templateId" value="adventure-log" checked><span>Adventure Log</span></label>
+              <label class="template-option"><input type="radio" name="templateId" value="field-notes"><span>Field Notes</span></label>
+              <label class="template-option"><input type="radio" name="templateId" value="hello-from"><span>Hello From</span></label>
+            </div>
+          </fieldset>
+
+        </form>
+
+        <section class="preview-panel" aria-labelledby="preview-label">
+          <h2 id="preview-label">Postcard preview</h2>
+          <div class="preview-frame">
+            <p id="preview-empty" class="preview-empty">Add a photo and your notes to see the postcard.</p>
+            <img id="preview-image" alt="Postcard preview" hidden>
+          </div>
+        </section>
+
+        <div class="export-panel">
+          <div class="actions">
+            <button id="download-pdf" type="button" class="primary">Download print PDF</button>
+            <button id="download-image" type="button" class="secondary">Download image (JPG)</button>
+          </div>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+          <p id="print-note" class="hint print-note">Print at 100% (“Actual size”) on 6 × 4 in photo paper. No borderless printing needed.</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

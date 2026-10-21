@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'">
+    <title>NudgePay — payment reminder emails</title>
+    <meta name="description" content="Write clear payment reminders for unpaid invoices in a few clicks. Private, free, and ready to send.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="templates.js" defer></script>
+    <script src="app.js" defer></script>
+  <link rel="canonical" href="https://tnnetwork-0909.github.io/ai-shireito-sites/nudgepay-2/app/">
+</head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="NudgePay home">NudgePay</a>
+        <span class="header-note">A calmer way to follow up</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="eyebrow">THE INVOICE FOLLOW-UP TOOL</div>
+          <h1 id="page-title">Get paid.<br><em>Keep the relationship.</em></h1>
+          <p>Polite, ready-to-send payment reminders for unpaid invoices. Add the details once, then choose the timing and tone that feel right.</p>
+        </section>
+
+        <div class="workspace">
+          <section class="form-panel" aria-labelledby="details-title">
+            <div class="section-heading"><div><h2 id="details-title">Invoice details</h2><p>Just the essentials to personalize every email.</p></div></div>
+            <p id="action-status" class="action-status" role="status" aria-live="polite" hidden></p>
+            <form id="invoice-form" novalidate>
+              <div class="field">
+                <label for="clientName">Client name <span class="required">*</span></label>
+                <input id="clientName" name="clientName" type="text" maxlength="60" placeholder="e.g. Alex or Acme team" autocomplete="off" required>
+                <span class="field-help">Use the name you'd greet them with.</span>
+              </div>
+              <div class="field">
+                <label for="yourName">Your name <span class="required">*</span></label>
+                <input id="yourName" name="yourName" type="text" maxlength="60" placeholder="e.g. Jordan Lee" autocomplete="name" required>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="amount">Amount due <span class="required">*</span></label>
+                  <input id="amount" name="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="e.g. 1250" required>
+                </div>
+                <div class="field">
+                  <label for="currency">Currency <span class="required">*</span></label>
+                  <select id="currency" name="currency" required>
+                    <option value="USD">USD — US dollar</option>
+                    <option value="GBP">GBP — British pound</option>
+                    <option value="EUR">EUR — Euro</option>
+                    <option value="CAD">CAD — Canadian dollar</option>
+                    <option value="AUD">AUD — Australian dollar</option>
+                    <option value="NZD">NZD — New Zealand dollar</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="invoiceNumber">Invoice number <span class="required">*</span></label>
+                <input id="invoiceNumber" name="invoiceNumber" type="text" maxlength="40" placeholder="e.g. INV-1042" autocomplete="off" required>
+              </div>
+              <div class="field">
+                <label for="dueDate">Due date <span class="required">*</span></label>
+                <input id="dueDate" name="dueDate" type="date" required>
+              </div>
+              <div class="optional-divider"><span>OPTIONAL, BUT HANDY</span></div>
+              <div class="field">
+                <label for="clientEmail">Client email <span class="optional">optional</span></label>
+                <input id="clientEmail" name="clientEmail" type="email" maxlength="254" placeholder="name@client.com" autocomplete="email">
+                <span class="field-help">Used only to prefill your email app.</span>
+              </div>
+              <div class="field">
+                <label for="paymentDetails">How to pay <span class="optional">optional</span></label>
+                <textarea id="paymentDetails" name="paymentDetails" rows="3" maxlength="180" placeholder="e.g. https://pay.example.com/inv-1042 or bank details on the invoice" autocomplete="off"></textarea>
+                <span class="field-help">You can include line breaks for bank details.</span>
+              </div>
+            </form>
+            <div class="privacy-note"><p>Saved in this browser only. Nothing is sent anywhere.</p><button type="button" id="clear-form" class="text-button">Clear</button></div>
+          </section>
+
+          <section class="results-panel" aria-labelledby="emails-title">
+            <div class="section-heading result-heading"><div><h2 id="emails-title">Your email sequence</h2><p>Pick when to write, then choose your voice.</p></div></div>
+            <div id="stage-tabs" class="stage-tabs" role="tablist" aria-label="Reminder timing"></div>
+            <div id="timing-note" class="timing-note" aria-live="polite"></div>
+            <div id="message-panel" role="tabpanel" tabindex="0" aria-label="Email options">
+              <div id="tone-cards" class="tone-cards"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer><span class="footer-brand">NudgePay</span><p>NudgePay is a free tool. No sign-up, no tracking — everything runs in your browser.</p></footer>
+    </div>
+  </body>
+</html>

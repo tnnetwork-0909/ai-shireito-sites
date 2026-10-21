@@ -1,0 +1,25 @@
+.sample-sheet{background:#fff;border:1px solid #cbd7d3;padding:1.5rem;margin:2rem 0}
+.sheet-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.scale-box{width:50mm;height:50mm;border:1px solid #172b2d;margin:1rem 0}
+.pattern-diagram{display:block;width:60mm;height:60mm;max-width:100%;margin:1rem 0}
+.meaning-card{width:90mm;min-height:60mm;max-width:100%;border:1px dashed #172b2d;padding:4mm;font:1rem/1.4 Arial,sans-serif;color:#172b2d}
+.meaning-card strong{font-size:16px}
+.meaning-card .line{border-bottom:1px solid #aaa;height:8mm}
+.meaning-card .names{display:flex;justify-content:space-between;margin-top:3mm}
+@media(max-width:700px){.sheet-grid{grid-template-columns:1fr}}
+@page{size:auto;margin:12mm}
+@media print{
+  html,body{background:#fff;font:11pt/1.35 Arial,sans-serif;color:#172b2d}
+  header,footer,.screen-only{display:none!important}
+  .wrap{width:100%;max-width:none}
+  main,.legal{padding:0;min-height:0}
+  h1{font-size:19pt;max-width:none;margin:0 0 3mm}
+  h2{font-size:13pt;margin:0 0 2mm}
+  p{margin:0 0 2mm}
+  .sample-sheet{border:0;padding:0;margin:0}
+  .sheet-grid{grid-template-columns:82mm 90mm;gap:7mm}
+  .scale-box{margin:2mm 0}
+  .pattern-diagram{margin:2mm 0}
+  .meaning-card{height:60mm;min-height:0;margin:2mm 0;font-size:12px}
+  .print-note{font-size:8pt}
+}

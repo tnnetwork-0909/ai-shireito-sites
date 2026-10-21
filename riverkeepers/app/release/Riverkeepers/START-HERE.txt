@@ -1,0 +1,19 @@
+RIVERKEEPERS — FULL GAME
+
+Unzip this folder, then open index.html in a browser.
+Use its links to open the two play sheets, rules, and complete play example.
+Print both sheet pages one-sided, black and white, on A4 or Letter paper
+at 100% scale. Turn off browser headers and footers. If an edge clips,
+use your printer's fit-to-printable-area setting.
+
+You need a pencil and two six-sided dice. The rules include a numbered
+paper-slip substitute if you do not have dice. One game is about 20–30
+minutes. The pages work offline and contain no external scripts.
+
+The files are HTML and CSS, not PDF. Do not separate the HTML files from
+their companion CSS files. You can save a PDF copy with your browser's
+Print / Save as PDF command if you prefer.
+
+For personal play, you may print copies and keep a backup. Do not resell,
+redistribute, or upload the paid files publicly. Sale and refund terms are
+on the Riverkeepers sales page.

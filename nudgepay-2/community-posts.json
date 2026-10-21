@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "where": "r/SideProject",
+      "text": "I built a free browser tool for drafting invoice reminder emails\n\nFollowing up on an invoice can be awkward, so I built NudgePay. Enter the invoice details once, then compare 15 English drafts across five timing stages and three tones: polite, standard, and firm. You can copy a draft or open it in your email app to review and send yourself. The tool has no signup and does not send emails or track payments.\n\nTry it: app/\n\nIf you freelance, which timing stage or tone would you change first?",
+      "note": "投稿前に r/SideProject の最新ルールと必要なフレアを確認する。新規アカウントはアカウント年齢やカルマなどで投稿を制限されることがある。"
+    },
+    {
+      "where": "Indie Hackers",
+      "text": "I built NudgePay to make invoice follow-ups less awkward — feedback welcome\n\nI built a small tool around one question: is it more useful to compare timing and tone than to start from a single reminder template? NudgePay fills 15 written English templates across five timing stages and three tones. It suggests send dates, but you review the draft and send it yourself. The browser tool is free and requires no account.\n\nTry it: app/\n\nFor anyone who invoices clients: which part would you change first, the timing choices, the tone options, or the wording?",
+      "note": "売り込みの連投を避け、作った理由と具体的なフィードバック依頼を中心にする。投稿時に最新のコミュニティルールと新規アカウントの制限を確認する。"
+    },
+    {
+      "where": "Hacker News (Show HN)",
+      "text": "Show HN: NudgePay – invoice reminder drafts for freelancers\napp/\n\nI built a browser tool that fills 15 written reminder templates for one invoice: five timing stages and three tones. You can copy a draft or open it in your email app; the tool does not send or schedule messages. It requires no signup and saves invoice entries in the browser. I would appreciate feedback on the timing suggestions and wording.",
+      "note": "1行目をタイトル、2行目をURLとしてリンク投稿し、後段は最初のコメントに使う。Show HN は参加歴の浅いアカウントへの一時的な制限がある。HN は生成文の投稿を避けるよう求めているため、投稿者本人の言葉に直す。投票依頼はしない。"
+    }
+  ]
+}

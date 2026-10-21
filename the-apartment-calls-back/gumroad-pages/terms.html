@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms — The Apartment Calls Back</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #101719;
+  --panel: #192326;
+  --text: #f5f2e9;
+  --muted: #bdc9c7;
+  --line: #425456;
+  --accent: #ffd18a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-wrap: break-word;
+}
+a { color: var(--accent); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: .15em; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.wrap { width: calc(100% - 2.5rem); max-width: 760px; min-width: 0; margin-inline: auto; overflow-wrap: anywhere; }
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap { padding-block: 1rem; }
+.brand { color: var(--text); font-weight: 700; text-decoration: none; }
+main { padding-block: 3.5rem 5rem; }
+h1, h2 { line-height: 1.18; letter-spacing: -.025em; }
+h1 { font-size: clamp(2.4rem, 8vw, 4.4rem); max-width: 12ch; margin: .3rem 0 1rem; }
+h2 { font-size: clamp(1.55rem, 4vw, 2rem); margin: 0 0 .9rem; }
+h3 { font-size: 1.1rem; margin: 1.4rem 0 .3rem; }
+p { margin: 0 0 1rem; }
+.eyebrow { color: var(--accent); font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.lead { font-size: 1.25rem; max-width: 55ch; }
+.muted, small { color: var(--muted); }
+small { font-size: 16px; }
+.hero { padding-bottom: 3rem; }
+.hero .note { margin-top: 1rem; }
+.button, button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: .7rem 1.2rem;
+  border: 2px solid var(--accent);
+  border-radius: .35rem;
+  background: var(--accent);
+  color: var(--bg);
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover, button:hover { background: #ffe0ad; border-color: #ffe0ad; }
+section { border-top: 1px solid var(--line); padding-block: 2.7rem; }
+.sample { background: var(--panel); border-left: 4px solid var(--accent); padding: 1.2rem 1.4rem; margin: 1.5rem 0 0; }
+.sample p:last-child { margin-bottom: 0; }
+.log-preview { margin: 1.5rem 0 0; padding: 1.25rem; border: 1px solid var(--line); background: #121212; color: #ededed; font: 18px/1.6 Georgia, "Times New Roman", serif; }
+.log-preview-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; margin-bottom: 1rem; }
+.log-preview-head span { color: #f2b84b; font-weight: 700; }
+.preview-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-bottom: 1rem; font: 700 16px/1.4 system-ui, sans-serif; text-align: center; }
+.preview-tabs span { padding: .65rem .3rem; border: 2px solid #3a3a3a; border-radius: 8px; background: #1d1d1d; }
+.preview-tabs .current { border-color: #f2b84b; color: #f2b84b; }
+.log-preview h3 { margin: 0 0 .6rem; font: 700 1.1rem/1.3 Georgia, "Times New Roman", serif; }
+.preview-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.25rem; }
+.preview-grid > div { min-width: 0; }
+.preview-grid h4 { margin: .7rem 0 .5rem; color: #b5b5b5; font: 700 16px/1.4 system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.log-item { margin-bottom: .5rem; padding: .6rem .9rem; border: 2px solid #3a3a3a; border-radius: 8px; background: #1d1d1d; }
+.log-item span { display: block; color: #b5b5b5; font: 16px/1.4 system-ui, sans-serif; }
+.log-preview figcaption { margin-top: 1rem; color: var(--muted); font: 16px/1.5 system-ui, sans-serif; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; text-align: left; }
+table th:first-child { width: 24%; }
+table th:nth-child(2) { width: 28%; }
+th, td { padding: .75rem .7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--accent); }
+ul { padding-left: 1.3rem; }
+li { margin-bottom: .35rem; }
+.details { background: var(--panel); padding: 1.3rem 1.5rem; margin: 1.5rem 0; }
+.signup label { display: block; margin-bottom: .5rem; font-weight: 700; }
+.signup-row { display: flex; gap: .65rem; }
+input[type=email] { min-width: 0; flex: 1; padding: .7rem .85rem; border: 2px solid var(--line); border-radius: .35rem; background: #fff; color: #111; font: inherit; }
+.legal h1 { max-width: none; font-size: clamp(2rem, 6vw, 3rem); }
+.legal section { padding-block: 1.5rem; }
+.legal dl { display: grid; grid-template-columns: minmax(10rem, 1fr) 2fr; margin: 0; }
+.legal dt, .legal dd { margin: 0; padding: .7rem; border-bottom: 1px solid var(--line); }
+.legal dt { font-weight: 700; }
+.site-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--muted); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; margin-bottom: 1rem; }
+.site-footer a { color: var(--text); }
+@media (max-width: 560px) {
+  .wrap { width: calc(100% - 2rem); }
+  main { padding-top: 2.7rem; }
+  .preview-grid { grid-template-columns: 1fr; gap: .5rem; }
+  .log-preview { padding: 1rem; }
+  th, td { padding: .65rem .3rem; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
+  .signup-row { flex-direction: column; }
+  .signup-row button, .hero .button, .buy .button { width: 100%; }
+  .legal dl { grid-template-columns: 1fr; }
+  .legal dt { padding-bottom: 0; border-bottom: 0; }
+  .legal dd { padding-top: .2rem; }
+}
+@media (max-width: 430px) {
+  .wrap { width: calc(100% - 2rem); max-width: 320px; }
+  .eyebrow { font-size: 14px; letter-spacing: .03em; }
+  .lead { font-size: 1.1rem; }
+  h1 { font-size: clamp(2rem, 8vw, 2.4rem); }
+  .button { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+</style>
+<link rel="canonical" href="https://tnnetwork-0909.github.io/ai-shireito-sites/the-apartment-calls-back/gumroad-pages/terms.html">
+</head>
+<body>
+  <header class="site-header"><div class="wrap"><a class="brand" href="../">The Apartment Calls Back</a></div></header>
+  <main class="wrap legal">
+    <p class="eyebrow">Legal</p><h1>Terms of use</h1>
+    <p class="muted">Last updated 21 October 2026. Operator: TN network. Contact: tnnetwork.support@icloud.com.</p>
+    <section><h2>What is provided</h2>
+      <p>The free preview contains the opening call. The US$2 full edition is a one-time digital purchase containing the opening, three recorded calls, three contradictions to solve, and three endings. It is supplied as downloadable HTML, CSS, and JavaScript files to open locally in a modern browser. There is no physical shipment or subscription. Purchase and delivery are handled by Gumroad under its checkout terms.</p>
+    </section>
+    <section><h2>Permitted use</h2>
+      <p>Your purchase gives you a personal, non-exclusive license to play the game. Do not redistribute the paid files, sell copies, remove ownership notices, or use the game unlawfully. You may share the free preview link.</p>
+    </section>
+    <section><h2>Refunds and cancellation</h2>
+      <p>Request a full refund within 14 days of purchase by replying to your Gumroad receipt. No reason is required. A full refund ends access to the paid edition through Gumroad. There is no subscription to cancel. This policy does not limit any rights you have under applicable consumer law; Gumroad may also handle refunds under its own rules.</p>
+    </section>
+    <section><h2>Availability and liability</h2>
+      <p>We aim to keep the downloadable files usable in modern browsers, but cannot promise they will work in every device or browser configuration. To the extent the law allows, we are not liable for indirect or consequential loss arising from use of the game. Nothing here excludes liability or consumer rights that cannot lawfully be excluded.</p>
+    </section>
+    <section><h2>Law and questions</h2>
+      <p>These terms are governed by the laws of Japan, subject to mandatory consumer protections that apply where you live. For product questions, reply to your Gumroad purchase receipt or contact tnnetwork.support@icloud.com.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><nav aria-label="Legal"><a href="../">Home</a><a href="privacy">Privacy</a><a href="tokushoho" lang="ja">特定商取引法に基づく表記</a></nav><p>Operator: TN network · Contact: tnnetwork.support@icloud.com</p></div></footer>
+</body>
+</html>
