@@ -21,6 +21,9 @@ p{max-width:68ch;margin:0 0 18px}
 .eyebrow{font-size:.9rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800;color:#075a48;margin-bottom:18px}
 .hero{padding-bottom:52px}
 .action-note{margin-top:12px;margin-bottom:0}
+.product-screenshot{margin:32px 0 0}
+.product-screenshot img{display:block;max-width:100%;height:auto}
+.product-screenshot figcaption{margin-top:8px;color:#40504a;font-size:1rem}
 .actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;margin-top:30px}
 .button,button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:11px 22px;background:#075a48;border:2px solid #075a48;border-radius:4px;color:#fff;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
 .button:hover,button:hover{background:#064637;border-color:#064637}
