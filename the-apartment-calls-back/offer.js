@@ -17,6 +17,7 @@ function render(template) {
   if (!template.includes("[[OFFER_PRICE]]")) throw new Error("Offer price token missing from template");
   const output = template.replaceAll("[[OFFER_PRICE]]", price)
     .replaceAll('href="../style.css"', 'href="style.css"')
+    .replaceAll('src="../screens/', 'src="screens/')
     .replaceAll('href="../privacy.html"', 'href="privacy.html"')
     .replaceAll('href="../terms.html"', 'href="terms.html"')
     .replaceAll('href="../tokushoho.html"', 'href="tokushoho.html"');

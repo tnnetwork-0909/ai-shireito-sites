@@ -6,6 +6,7 @@ const path = require("node:path");
 const root = path.resolve(process.env.LAUNCH_SOURCE_DIR || __dirname);
 const out = path.join(root, "gumroad-pages");
 const css = fs.readFileSync(path.join(root, "style.css"), "utf8");
+const screenshot = fs.readFileSync(path.join(root, "screens", "the-apartment-calls-back-desktop.png")).toString("base64");
 const pages = ["index.html", "privacy.html", "terms.html", "tokushoho.html"];
 const legalSlugs = ["privacy", "terms", "tokushoho"];
 const allowed = new Set([
@@ -20,6 +21,9 @@ function renderedPages() {
   const marker = '<link rel="stylesheet" href="style.css">';
   if (!source.includes(marker)) throw new Error(`${page}: stylesheet link missing`);
   let html = source.replace(marker, `<style>\n${css}\n</style>`);
+  if (page === "index.html") {
+    html = html.replace('src="screens/the-apartment-calls-back-desktop.png"', `src="data:image/png;base64,${screenshot}"`);
+  }
   for (const slug of legalSlugs) {
     html = html.replaceAll(`href="${slug}.html"`, `href="${slug}"`);
   }
