@@ -29,6 +29,7 @@ p{max-width:70ch;margin:0 0 1.1rem}
 .sample-art{background:var(--white);padding:1.4rem;border:1px solid var(--line);border-radius:8px}
 .sample-art img{display:block;width:100%;height:auto;max-height:240px;object-fit:contain}
 .sample-art p{margin:.8rem 0 0;font-size:1rem;text-align:center}
+.product-preview{display:block;max-width:100%;height:auto;margin:2rem auto 0}
 .motifs{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
 .motif{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:1.2rem;min-height:170px}
 .motif img{display:block;width:72px;height:72px;margin-bottom:.7rem}
