@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f4ef;
+  --ink: #241f20;
+  --muted: #534d4b;
+  --line: #d7d0c9;
+  --accent: #7b293b;
+  --accent-hover: #652032;
+  --white: #fffdf9;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.55;
+}
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:hover { color: var(--accent-hover); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.site-shell {
+  width: min(100% - 48px, 1120px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header, .site-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-header {
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 700; }
+.header-note { color: var(--muted); font-size: 0.875rem; }
+
+.main-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.85fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 110px);
+  flex: 1;
+  padding: 82px 0 90px;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.intro h1 { max-width: 690px; margin-bottom: 32px; font-size: clamp(3.4rem, 5.7vw, 5.6rem); }
+.lead { max-width: 580px; margin-bottom: 22px; font-size: clamp(1.13rem, 1.5vw, 1.32rem); line-height: 1.55; }
+.development-note { max-width: 540px; margin-bottom: 0; color: var(--muted); font-size: 1rem; }
+
+.signup {
+  padding: clamp(28px, 3.2vw, 42px);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.signup .eyebrow { margin-bottom: 16px; }
+.signup h2 { margin-bottom: 18px; font-size: clamp(2rem, 3vw, 2.7rem); }
+.signup > p:not(.eyebrow):not(.signup-note) { margin-bottom: 28px; }
+
+label { display: block; margin-bottom: 8px; font-size: 1rem; font-weight: 650; }
+
+input, button { width: 100%; min-height: 52px; border-radius: 2px; font: inherit; }
+
+input {
+  padding: 12px 15px;
+  background: #fff;
+  border: 1px solid #847c79;
+  color: var(--ink);
+}
+
+input::placeholder { color: #746c69; opacity: 1; }
+
+button {
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.form-status { margin: 12px 0 0; color: var(--accent); font-size: 1rem; }
+.form-status:empty { display: none; }
+.signup-note { margin: 18px 0 0; color: var(--muted); font-size: 1rem; }
+
+.site-footer {
+  padding: 24px 0 30px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.policy { width: min(100%, 690px); flex: 1; padding: 84px 0 100px; }
+.policy h1 { margin-bottom: 36px; font-size: clamp(3rem, 5vw, 4.6rem); }
+.policy p { font-size: 1.125rem; line-height: 1.7; }
+.policy dl { margin: 42px 0 40px; padding-top: 18px; border-top: 1px solid var(--line); }
+.policy dl div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 12px 0; }
+.policy dt { color: var(--muted); }
+.policy dd { margin: 0; overflow-wrap: anywhere; }
+.back-link { font-size: 1rem; font-weight: 650; }
+
+@media (max-width: 800px) {
+  .main-content { grid-template-columns: 1fr; gap: 48px; padding: 68px 0 76px; }
+  .intro h1 { max-width: 660px; }
+  .signup { max-width: 600px; }
+}
+
+@media (max-width: 520px) {
+  .site-shell { width: min(100% - 36px, 1120px); }
+  .site-header { padding: 22px 0; }
+  .header-note { display: none; }
+  .main-content { padding: 54px 0 64px; gap: 40px; }
+  .intro h1 { font-size: clamp(2.8rem, 12vw, 3.6rem); }
+  .signup { padding: 25px 22px; }
+  .site-footer { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .policy { padding: 60px 0 80px; }
+  .policy dl div { grid-template-columns: 1fr; gap: 0; }
+}
