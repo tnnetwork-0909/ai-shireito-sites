@@ -113,7 +113,7 @@
 
   function renderPreview() {
     $("preview-heading").textContent = T.previewHeading;
-    const storeUrl = typeof config.storeUrl === "string" && /^https:\/\/[^\s]+$/i.test(config.storeUrl)
+    const storeUrl = typeof config.storeUrl === "string" && (config.storeUrl === "https://tnnetwork.gumroad.com/l/wouyw" || /^https:\/\/[^\s]+$/i.test(config.storeUrl))
       ? config.storeUrl : "";
     $("preview-text").textContent = fmt(T.previewEnd, { price: config.price })
       + (storeUrl ? "" : " " + T.previewNext);

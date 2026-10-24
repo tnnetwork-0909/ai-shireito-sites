@@ -8,7 +8,7 @@
     title: "The Apartment Calls Back",
     price: "$2",
     // Add the published HTTPS product page to show a purchase link in the free preview.
-    storeUrl: "",
+    storeUrl: "https://tnnetwork.gumroad.com/l/wouyw",
     // "full" = whole game. "preview" = stops after the free opening call.
     edition: "preview",
     storageKey: "acb-progress-v1",
