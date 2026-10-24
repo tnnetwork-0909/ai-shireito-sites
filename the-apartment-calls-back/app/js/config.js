@@ -10,7 +10,7 @@
     // Add the published HTTPS product page to show a purchase link in the free preview.
     storeUrl: "",
     // "full" = whole game. "preview" = stops after the free opening call.
-    edition: "full",
+    edition: "preview",
     storageKey: "acb-progress-v1",
 
     text: {
