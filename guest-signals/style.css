@@ -29,6 +29,9 @@ p{max-width:70ch;margin:0 0 1.1rem}
 .sample-art{background:var(--white);padding:1.4rem;border:1px solid var(--line);border-radius:8px}
 .sample-art img{display:block;width:100%;height:auto;max-height:240px;object-fit:contain}
 .sample-art p{margin:.8rem 0 0;font-size:1rem;text-align:center}
+.product-preview{margin-top:2rem;padding:.75rem;background:var(--white);border:1px solid var(--line);border-radius:8px}
+.product-preview img{display:block;width:100%;height:auto}
+.product-preview figcaption{margin:.7rem .25rem .1rem;font-size:1rem;color:var(--muted)}
 .page-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem}
 .page-strip figure{margin:0;padding:.75rem;background:var(--white);border:1px solid var(--line);border-radius:8px}
 .page-strip img{display:block;width:100%;height:auto;border:1px solid var(--line)}
@@ -38,7 +41,7 @@ p{max-width:70ch;margin:0 0 1.1rem}
 .motif img{display:block;width:72px;height:72px;margin-bottom:.7rem}
 .motif p{font-size:1rem;color:var(--muted);margin:0}
 .motif .stitches{margin-top:.7rem;color:var(--ink)}
-.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:2.5rem 0 1rem}
+.preview-grid{display:grid;grid-template-columns:minmax(0,1fr);max-width:450px;margin:2.5rem 0 1rem}
 .preview-grid figure{margin:0;padding:1rem;background:var(--white);border:1px solid var(--line);border-radius:8px}
 .preview-grid img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .preview-grid figcaption{margin-top:.8rem;font-size:1rem}
