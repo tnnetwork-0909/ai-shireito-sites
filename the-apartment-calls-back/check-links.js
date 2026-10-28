@@ -44,7 +44,8 @@ for (const file of walk(root)) {
   for (const [, href] of content.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
     if (/^(?:https?:|mailto:|data:|#|\{\{)/.test(href)) continue;
     const target = path.resolve(path.dirname(file), href.split(/[?#]/, 1)[0]);
-    if (!fs.existsSync(target) || !fs.statSync(target).isFile()) {
+    const linkedFile = href.endsWith("/") ? path.join(target, "index.html") : target;
+    if (!fs.existsSync(linkedFile) || !fs.statSync(linkedFile).isFile()) {
       throw new Error(`${file}: missing local link ${href}`);
     }
     checkedLinks++;

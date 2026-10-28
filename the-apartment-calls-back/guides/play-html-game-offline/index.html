@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; base-uri 'none'; form-action https://buttondown.com/api/emails/embed-subscribe/tnnetwork">
+  <meta name="description" content="Learn how to play an HTML game offline: extract the full ZIP, open index.html in a browser, and check common causes when a downloaded game will not start.">
+  <title>How to Play an HTML Game Offline from a ZIP</title>
+  <link rel="stylesheet" href="../../style.css">
+<link rel="canonical" href="https://tnnetwork-0909.github.io/ai-shireito-sites/the-apartment-calls-back/guides/play-html-game-offline/">
+</head>
+<body class="guide">
+  <header class="site-header"><div class="wrap"><a class="brand" href="../../">The Apartment Calls Back</a></div></header>
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Offline play guide</p>
+      <h1>How to play an HTML game offline</h1>
+      <p class="lead">Extract the complete ZIP, keep its files and folders together, then open its <code>index.html</code> in a modern browser. This works for games built to run from local files; some HTML games need a web server or online services even after you download them.</p>
+      <a class="button" href="../../app/">Try the browser opening first</a>
+    </div>
+
+    <section aria-labelledby="steps-heading">
+      <h2 id="steps-heading">From ZIP to playable game</h2>
+      <ol>
+        <li>Get the ZIP from the game's official source and save it where you can find it.</li>
+        <li>Extract the <em>whole</em> ZIP into a normal folder. On a Mac, double-click the ZIP. On Windows, right-click it and choose <strong>Extract All</strong>.</li>
+        <li>Open the extracted folder and find <code>index.html</code>. Keep any <code>css</code>, <code>js</code>, image, or data folders beside it; do not move the HTML file out alone.</li>
+        <li>Open <code>index.html</code> in a modern browser. You should see a local <code>file://</code> address, not a page inside a ZIP viewer.</li>
+        <li>If the maker says the game supports offline play, disconnect from the network and reload it to check. Reconnect if you need to get help or download a fresh copy.</li>
+      </ol>
+      <p>Instructions vary by game. A ZIP containing HTML files does not guarantee that it can run without a connection.</p>
+    </section>
+
+    <section aria-labelledby="example-heading">
+      <h2 id="example-heading">What this looks like in The Apartment Calls Back</h2>
+      <p>The full edition is a ZIP containing <code>the-apartment-calls-back/index.html</code> alongside <code>css/style.css</code> and the game's <code>js</code> files. Extract the folder intact, open its <code>index.html</code>, and press <strong>Answer the call</strong>. After the written opening, press <strong>Open the call log</strong> to reach the three recorded calls.</p>
+      <p>This edition is designed to work from local files with no account or network connection after download. Its progress is stored in that browser on that device when browser storage is available. If storage is blocked, the game can still be played, but progress may not persist.</p>
+      <p>The <a href="../../">game page</a> explains what the free opening and full edition contain. The free opening runs in a browser and does not provide the full ZIP or call-log puzzle.</p>
+    </section>
+
+    <section aria-labelledby="trouble-heading">
+      <h2 id="trouble-heading">If the game does not open</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th scope="col">What you see</th><th scope="col">Check next</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">The ZIP opens as a file list</th><td>Extract all files first, then open <code>index.html</code> from the extracted folder.</td></tr>
+          <tr><th scope="row">A plain page or missing styles</th><td>Check that <code>css</code> and <code>js</code> are still next to <code>index.html</code>. Extract a fresh copy if files were moved or lost.</td></tr>
+          <tr><th scope="row">The browser shows a blank game</th><td>Check the game's own instructions. Some games use browser features that do not work from <code>file://</code>; they may need the publisher's hosted version or a local server.</td></tr>
+          <tr><th scope="row">It works online but not offline</th><td>The game may rely on remote assets or services. Check the maker's offline claim before troubleshooting your connection.</td></tr>
+        </tbody>
+      </table></div>
+      <p>Do not disable browser security settings just to force a downloaded game to run. <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server">MDN's guide to local files</a> explains why some games need a local server.</p>
+    </section>
+
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading">Want a quiet game as well?</h2>
+      <p>Our <a href="../horror-games-without-audio/">guide to horror games without audio</a> shows how to check whether all clues are visible. <a href="../../guides/">See all guides</a>.</p>
+    </section>
+
+    <section aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Can every HTML game run offline?</h3>
+      <p>No. Some games fetch files over a network or require a server, and browsers may restrict those requests from <code>file://</code>. Follow that game's own instructions; The Apartment Calls Back is built for local offline play.</p>
+      <h3>Why does opening index.html inside a ZIP fail?</h3>
+      <p>A ZIP viewer can show a file without making the rest of the game available beside it as normal files. Extract the entire archive, then open <code>index.html</code> in the extracted folder.</p>
+      <h3>Do I need to install software for The Apartment Calls Back?</h3>
+      <p>No game installer is required. You need a browser that can open the local HTML file, and the extracted CSS and JavaScript files must stay with it.</p>
+      <h3>Can I play the downloaded edition on a phone?</h3>
+      <p>The layout fits a phone-size screen, but local file handling differs by phone and browser. Try the free browser opening to check reading comfort, then confirm your phone can extract a ZIP and open a local HTML file before buying for phone-only play.</p>
+    </section>
+
+    <section class="signup" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Get game updates</h2>
+      <p>Optional email updates about fixes and future releases. Signing up does not place an order.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/tnnetwork" method="post"><input type="hidden" name="embed" value="1">
+        <label for="signup-email">Email address</label>
+        <div class="signup-row"><input id="signup-email" type="email" name="email" autocomplete="email" required><button type="submit">Sign up</button></div>
+      </form>
+      <p class="muted"><small>Your email is sent to the signup provider only when you submit. See the <a href="../../privacy.html">privacy policy</a>.</small></p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><nav aria-label="Site"><a href="../../">Home</a><a href="../../guides/">All guides</a></nav></div></footer>
+</body>
+</html>
