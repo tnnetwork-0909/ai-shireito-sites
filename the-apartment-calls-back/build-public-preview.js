@@ -20,7 +20,6 @@ for (const file of files) {
 const configPath = path.join(out, "js/config.js");
 let config = fs.readFileSync(configPath, "utf8");
 const replacements = [
-  ['storeUrl: "https://tnnetwork.gumroad.com/l/wouyw"', 'storeUrl: ""'],
   ['tagline: "A 20-minute phone horror. Three call recordings. Find where they lie."',
    'tagline: "A short phone horror opening. One call from an empty apartment."'],
   ['previewEnd: "That was the free opening. The full story — three call recordings, three contradictions, three endings — is {price}."',
@@ -28,6 +27,10 @@ const replacements = [
   ['previewNext: "The full edition will be sold on Gumroad."',
    'previewNext: ""'],
 ];
+if (!/storeUrl: "(?:\{\{PAYMENT_LINK\}\}|https:\/\/[^"\s]+)"/.test(config)) {
+  throw new Error("Free preview source has an unexpected store URL");
+}
+config = config.replace(/storeUrl: "(?:\{\{PAYMENT_LINK\}\}|https:\/\/[^"\s]+)"/, 'storeUrl: ""');
 for (const [before, after] of replacements) {
   if (!config.includes(before)) throw new Error(`Free preview source changed: ${before}`);
   config = config.replace(before, after);

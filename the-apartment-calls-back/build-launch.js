@@ -3,7 +3,10 @@
 const fs = require("node:fs");
 const { price, expectedFiles, gameConfigContent } = require("./offer.js");
 
-for (const { output, content } of expectedFiles()) fs.writeFileSync(output, content);
+for (const { output, content } of expectedFiles()) {
+  fs.mkdirSync(require("node:path").dirname(output), { recursive: true });
+  fs.writeFileSync(output, content);
+}
 const config = gameConfigContent();
 fs.writeFileSync(config.file, config.content);
 require("./build-gumroad-pages.js").build();

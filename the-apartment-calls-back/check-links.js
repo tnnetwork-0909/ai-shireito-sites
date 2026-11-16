@@ -4,13 +4,10 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { expectedFiles, gamePrice } = require("./offer.js");
 const { renderedPages } = require("./build-gumroad-pages.js");
+const { names, marksIn } = require("./publication.js");
 
 const root = __dirname;
 const legalSlugs = ["privacy", "terms", "tokushoho"];
-const allowed = new Set([
-  "PAYMENT_LINK", "APP_LINK", "HOME_LINK", "SIGNUP_FORM",
-  "SELLER_NAME", "SELLER_EMAIL", "SELLER_ADDRESS", "SELLER_PHONE",
-]);
 let checkedLinks = 0;
 let checkedMarks = 0;
 
@@ -36,11 +33,11 @@ function walk(dir) {
 for (const file of walk(root)) {
   if (!/\.(?:html|css|js|md)$/.test(file)) continue;
   const content = fs.readFileSync(file, "utf8");
-  for (const [, mark] of content.matchAll(/\{\{([^{}]+)\}\}/g)) {
-    if (!allowed.has(mark)) throw new Error(`${file}: unsupported mark ${mark}`);
+  for (const mark of marksIn(content)) {
+    if (!names.includes(mark)) throw new Error(`${file}: unsupported mark ${mark}`);
     checkedMarks++;
   }
-  if (!file.endsWith(".html")) continue;
+  if (!file.endsWith(".html") || file.startsWith(path.join(root, "templates") + path.sep)) continue;
   for (const [, href] of content.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
     if (/^(?:https?:|mailto:|data:|#|\{\{)/.test(href)) continue;
     const target = path.resolve(path.dirname(file), href.split(/[?#]/, 1)[0]);

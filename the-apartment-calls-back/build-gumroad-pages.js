@@ -2,6 +2,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const { marksIn, names } = require("./publication.js");
 
 const root = path.resolve(process.env.LAUNCH_SOURCE_DIR || __dirname);
 const out = path.join(root, "gumroad-pages");
@@ -9,10 +10,6 @@ const css = fs.readFileSync(path.join(root, "style.css"), "utf8");
 const screenshot = fs.readFileSync(path.join(root, "screens", "the-apartment-calls-back-desktop.png")).toString("base64");
 const pages = ["index.html", "privacy.html", "terms.html", "tokushoho.html"];
 const legalSlugs = ["privacy", "terms", "tokushoho"];
-const allowed = new Set([
-  "PAYMENT_LINK", "APP_LINK", "HOME_LINK", "SIGNUP_FORM",
-  "SELLER_NAME", "SELLER_EMAIL", "SELLER_ADDRESS", "SELLER_PHONE",
-]);
 
 function renderedPages() {
   const rendered = [];
@@ -27,8 +24,8 @@ function renderedPages() {
   for (const slug of legalSlugs) {
     html = html.replaceAll(`href="${slug}.html"`, `href="${slug}"`);
   }
-  for (const match of html.matchAll(/\{\{([^{}]+)\}\}/g)) {
-    if (!allowed.has(match[1])) throw new Error(`${page}: unsupported mark ${match[0]}`);
+  for (const mark of marksIn(html)) {
+    if (!names.includes(mark)) throw new Error(`${page}: unsupported mark {{${mark}}}`);
   }
   rendered.push({ name: page, html });
   // Local mirrors let link audits resolve the same URLs as Gumroad's page slugs.
