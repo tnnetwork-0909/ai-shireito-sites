@@ -9,6 +9,7 @@ const templates = ["index.html", "privacy.html", "terms.html", "tokushoho.html",
 const guides = [
   "guides/index.html",
   "guides/horror-games-without-audio/index.html",
+  "guides/horror-games-without-combat/index.html",
   "guides/horror-games-without-chase-sequences/index.html",
   "guides/horror-games-without-gore/index.html",
   "guides/play-html-game-offline/index.html",
